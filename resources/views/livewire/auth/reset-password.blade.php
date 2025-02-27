@@ -69,50 +69,50 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header title="Reset password" description="Please enter your new password below" />
+    <x-auth-header title="Restablecer contraseña" description="Ingresa tu nueva contraseña a continuación" />
 
-    <!-- Session Status -->
+    <!-- Estado de Sesión -->
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form wire:submit="resetPassword" class="flex flex-col gap-6">
-        <!-- Email Address -->
+        <!-- Correo Electrónico -->
         <flux:input
             wire:model="email"
             id="email"
-            label="{{ __('Email') }}"
+            label="{{ __('Correo electrónico') }}"
             type="email"
             name="email"
             required
             autocomplete="email"
         />
 
-        <!-- Password -->
+        <!-- Contraseña -->
         <flux:input
             wire:model="password"
             id="password"
-            label="{{ __('Password') }}"
+            label="{{ __('Contraseña') }}"
             type="password"
             name="password"
             required
             autocomplete="new-password"
-            placeholder="Password"
+            placeholder="Contraseña"
         />
 
-        <!-- Confirm Password -->
+        <!-- Confirmar Contraseña -->
         <flux:input
             wire:model="password_confirmation"
             id="password_confirmation"
-            label="{{ __('Confirm password') }}"
+            label="{{ __('Confirmar contraseña') }}"
             type="password"
             name="password_confirmation"
             required
             autocomplete="new-password"
-            placeholder="Confirm password"
+            placeholder="Confirmar contraseña"
         />
 
         <div class="flex items-center justify-end">
             <flux:button type="submit" variant="primary" class="w-full">
-                {{ __('Reset password') }}
+                {{ __('Restablecer contraseña') }}
             </flux:button>
         </div>
     </form>

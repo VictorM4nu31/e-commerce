@@ -23,16 +23,16 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header title="Forgot password" description="Enter your email to receive a password reset link" />
+    <x-auth-header title="Recuperar contraseña" description="Ingresa tu correo electrónico para recibir un enlace de restablecimiento" />
 
-    <!-- Session Status -->
+    <!-- Estado de Sesión -->
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form wire:submit="sendPasswordResetLink" class="flex flex-col gap-6">
-        <!-- Email Address -->
+        <!-- Correo Electrónico -->
         <flux:input
             wire:model="email"
-            label="{{ __('Email Address') }}"
+            label="{{ __('Correo electrónico') }}"
             type="email"
             name="email"
             required
@@ -40,11 +40,11 @@ new #[Layout('components.layouts.auth')] class extends Component {
             placeholder="email@example.com"
         />
 
-        <flux:button variant="primary" type="submit" class="w-full">{{ __('Email password reset link') }}</flux:button>
+        <flux:button variant="primary" type="submit" class="w-full">{{ __('Enviar enlace de recuperación') }}</flux:button>
     </form>
 
     <div class="space-x-1 text-center text-sm text-zinc-400">
-        Or, return to
-        <flux:link href="{{ route('login') }}" wire:navigate>log in</flux:link>
+        O bien, regresa a
+        <flux:link href="{{ route('login') }}" wire:navigate>iniciar sesión</flux:link>
     </div>
 </div>

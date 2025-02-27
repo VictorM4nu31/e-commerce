@@ -73,16 +73,16 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header title="Log in to your account" description="Enter your email and password below to log in" />
+    <x-auth-header title="Inicia sesión en tu cuenta" description="Ingresa tu correo y contraseña a continuación para acceder" />
 
-    <!-- Session Status -->
+    <!-- Estado de la Sesión -->
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form wire:submit="login" class="flex flex-col gap-6">
-        <!-- Email Address -->
+        <!-- Correo Electrónico -->
         <flux:input
             wire:model="email"
-            label="{{ __('Email address') }}"
+            label="{{ __('Correo electrónico') }}"
             type="email"
             name="email"
             required
@@ -91,35 +91,35 @@ new #[Layout('components.layouts.auth')] class extends Component {
             placeholder="email@example.com"
         />
 
-        <!-- Password -->
+        <!-- Contraseña -->
         <div class="relative">
             <flux:input
                 wire:model="password"
-                label="{{ __('Password') }}"
+                label="{{ __('Contraseña') }}"
                 type="password"
                 name="password"
                 required
                 autocomplete="current-password"
-                placeholder="Password"
+                placeholder="Contraseña"
             />
 
             @if (Route::has('password.request'))
                 <flux:link class="absolute right-0 top-0 text-sm" href="{{ route('password.request') }}" wire:navigate>
-                    {{ __('Forgot your password?') }}
+                    {{ __('¿Olvidaste tu contraseña?') }}
                 </flux:link>
             @endif
         </div>
 
-        <!-- Remember Me -->
-        <flux:checkbox wire:model="remember" label="{{ __('Remember me') }}" />
+        <!-- Recordar Cuenta -->
+        <flux:checkbox wire:model="remember" label="{{ __('Recordarme') }}" />
 
         <div class="flex items-center justify-end">
-            <flux:button variant="primary" type="submit" class="w-full">{{ __('Log in') }}</flux:button>
+            <flux:button variant="primary" type="submit" class="w-full">{{ __('Iniciar sesión') }}</flux:button>
         </div>
     </form>
 
     <div class="space-x-1 text-center text-sm text-zinc-600 dark:text-zinc-400">
-        Don't have an account?
-        <flux:link href="{{ route('register') }}" wire:navigate>Sign up</flux:link>
+        ¿No tienes una cuenta?
+        <flux:link href="{{ route('register') }}" wire:navigate>Registrarse</flux:link>
     </div>
 </div>
